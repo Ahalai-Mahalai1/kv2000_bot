@@ -76,7 +76,7 @@ async def process_details_sent(message: Message, state: FSMContext):
     await message.answer(text=LEXICON_RU['botik_answer'])
     await state.update_data(details=message.text)
     user_dict[message.from_user.id] = await state.get_data()
-    await bot.send_message(user_id, f'Имя клиента: {user_dict[message.from_user.id]['name']}')
+    await bot.send_message(user_id, f'{user_dict[message.from_user.id]['name']}')
     # грузим всё в словарь
     # Завершаем машину состояний
     await state.clear()
