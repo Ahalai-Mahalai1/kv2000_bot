@@ -77,7 +77,7 @@ async def process_details_sent(message: Message, state: FSMContext):
     await state.update_data(details=message.text)
     user_dict[message.from_user.id] = await state.get_data()
     a=user_dict[message.from_user.id]
-    await bot.send_message(user_id, f'{a}')
+    await bot.send_message(user_id, f'{a['name']}')
     # грузим всё в словарь
     # Завершаем машину состояний
     await state.clear()
